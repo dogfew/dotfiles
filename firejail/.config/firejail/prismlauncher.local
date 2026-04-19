@@ -1,0 +1,2 @@
+include games.local
+ignore include disable-shell.inc

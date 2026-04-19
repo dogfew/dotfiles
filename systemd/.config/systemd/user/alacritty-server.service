@@ -1,0 +1,15 @@
+[Service]
+ExecStart=alacritty --daemon
+UnsetEnvironment=LISTEN_PID LISTEN_FDS LISTEN_FDNAMES
+NonBlocking=true
+Restart=always
+RestartSec=60s
+
+[Unit]
+Description=Alacritty terminal server mode
+Documentation=man:alacritty(1)
+PartOf=graphical-session.target
+After=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
+[Install]
+WantedBy=graphical-session.target

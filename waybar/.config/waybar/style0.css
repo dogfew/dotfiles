@@ -1,0 +1,22 @@
+@import "style_global.css";
+
+window#waybar {
+  background: #181818;
+  transition: background-color 0.5s;
+}
+
+window#waybar.empty,
+window#waybar.solo {
+  background: none;
+}
+
+window#waybar.firefox,
+window#waybar.chromium,
+window#waybar.Gimp,
+window#waybar.mpv,
+window#waybar.java,
+window#waybar.qemu,
+window#waybar.jetbrains-rustrover,
+window#waybar.jetbrains-pycharm-ce {
+  background: #181818;
+}

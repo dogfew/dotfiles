@@ -1,0 +1,4 @@
+noblacklist ${HOME}/.rustup
+whitelist ${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/book
+read-only ${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/book
+

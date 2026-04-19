@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+APP="gpu-screen-recorder"
+FILE_NAME="$(date +%b-%d-%H:%M).mp4"
+OUT_PATH="${HOME}/Videos/Screencasts/$FILE_NAME"
+if pgrep -x 'gpu-screen-reco' > /dev/null; then
+  pkill -f "$APP"
+  notify-send "$APP" "Stopped"
+else
+  notify-send "Screen Recorder" "$FILE_NAME"
+  gpu-screen-recorder -w portal -restore-portal-session yes -a "default_output|default_input" -c mp4 -k auto -cr full -tune quality -fallback-cpu-encoding yes -o "$OUT_PATH"
+fi

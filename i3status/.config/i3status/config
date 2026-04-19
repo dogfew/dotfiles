@@ -1,0 +1,65 @@
+general {
+    markup = "pango"
+    output_format = "i3bar"
+    color_good = "#F8F8F8"
+    color_bad = "#C55555"
+    color_degraded = "#AC4242"
+	colors = false
+	interval = 4
+}
+order += "disk /"
+order += "memory"
+order += "wireless _first_"
+order += "battery 0"
+# order += "cpu_temperature 0"
+# order += "tztime"
+order += "volume master"
+order += "tztime local"
+
+wireless _first_ {
+    format_up   = "<span foreground='#AAC474'>Wi-Fi:</span> %bitrate <span foreground='#D8D8D8'>%ip</span>"
+    format_down = "<span foreground='#AC4242'>No Wi-Fi</span>"
+}
+
+battery 0 {
+        format = "%status %percentage %remaining %emptytime"
+        format_down = ""
+        status_chr = "⚡ CHR"
+        status_bat = "BAT"
+        status_unk = "? UNK"
+        status_full = "☻ FULL"
+        status_idle = "☻ IDLE"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+volume master {
+        format = "<span foreground='#C28CB8'>Volume:</span> %volume"
+}
+tztime local {
+        # format = "<span foreground='#82B8C8'>%Y/%m/%d</span> %H:%M<span foreground='#D8D8D8'>:%S</span>"
+        format = "<span foreground='#82B8C8'>%Y/%m/%d</span> %H:%M"
+        timezone = "Europe/Moscow"
+}
+
+load {
+        format = "%5min"
+}
+
+cpu_temperature 0 {
+        format = "T: %degrees °C"
+        path = "/sys/devices/platform/coretemp.0/temp1_input"
+}
+
+memory {
+        format = "<span foreground='#FECA88'>RAM</span>: %used<span foreground='#D8D8D8'>/%total</span>"
+        threshold_degraded = "10%"
+        format_degraded = "MEMORY: %free"
+}
+
+disk "/" {
+format = "<span foreground='#C55555'>Disk:</span> %used<span foreground='#D8D8D8'>/%total</span>"
+}
+
+read_file uptime {
+        path = "/proc/uptime"
+}

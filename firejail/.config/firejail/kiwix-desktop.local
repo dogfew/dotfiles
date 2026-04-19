@@ -1,0 +1,6 @@
+# ignore dbus-user none
+dbus-user filter
+net none
+whitelist /media/shared/knowledge
+whitelist ${HOME}/Knowledge
+whitelist ${HOME}/knowledge

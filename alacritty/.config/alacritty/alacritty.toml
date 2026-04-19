@@ -1,0 +1,12 @@
+[general]
+live_config_reload=true
+[window]
+padding = {x=8, y=8}
+# opacity=0.90
+# blur=false
+# decorations="None"
+title="~"
+[terminal]
+shell="/bin/fish"
+[font]
+size=13

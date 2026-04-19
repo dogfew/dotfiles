@@ -1,0 +1,5 @@
+# blacklist /etc/mpv/scripts/
+net none
+ignore dbus-user none
+dbus-user filter
+dbus-user.own org.mpris.MediaPlayer2.mpv

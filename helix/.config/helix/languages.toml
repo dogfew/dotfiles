@@ -1,0 +1,36 @@
+[language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+
+[[language]]
+name = "python"
+language-servers = [ "ty", "ruff" ]
+auto-format = true
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+[language-server.ty]
+command = "ty"
+args = ["server"]
+[language-server.ty.config]
+inlayHints.callArgumentNames = false
+experimental.rename = true
+experimental.autoImport = false
+[language-server.ruff.config.settings]
+lineLength = 110
+fixAll = false
+organizeImports = false
+[language-server.ruff.config]
+unsafe-fixes=false
+[language-server.ruff.config.settings.lint]
+extendSelect = ["B", "SIM", "UP", "I", "C4", "PIE", "RET", "RUF", "ARG", "PTH", "TC", "A"]
+# extendSelect = ["ALL"]
+ignore = ["D"]
+
+
+# [[language]]
+# name = "jsonc"
+# language-servers = []
+# auto-format = false

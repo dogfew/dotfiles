@@ -1,0 +1,95 @@
+private/
+.svn
+*.log
+*.pot
+*.pyc
+*.db
+*.hist
+*.cache
+*.plist
+*.swp
+*.tmp
+
+### ============================= Stow Targets ============================= ###
+albert/**/*.db
+albert/**/*version
+calibre/**/caches/
+calibre/**/*.pickle
+calibre/**/*.json
+cinnamon/**/backgrounds/
+cinnamon/**/configs/
+cinnamon/**/spices.cache/
+enpass/.config/sinew.in/Enpass.conf.*
+ranger/.local/share/ranger/history
+vim/tmp/
+vim/**/pack/
+vim/**/tpope/
+vim/**/autoload/
+vim/**/plugged/
+vim/**/.*hist
+vim/**/*.swp
+vscode/extensions/
+ihsec/**/*
+!ihsec/**/personal/init.el
+!ihsec/**/personal/config.el
+!ihsec/**/personal/config.org
+!ihsec/**/doomemacs/init.el
+!ihsec/**/doomemacs/init.example.el
+!ihsec/**/doomemacs/README.md
+
+### =============================== Windows ================================ ###
+*.exe
+*.exe~
+*.dll
+
+### ================================= OSx ================================== ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### ================================ Linux ================================= ###
+*~
+
+# temporary files which can be created if a process still has a handle open of 
+# a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+.desktop
+
+# .nfs files are created when an open file is removed but can be still accessed
+.nfs*
+
+### ================================= IDEs ================================= ###
+.idea/
+.vscode/
+.history
+.dist/
+nushell/**/history.txt

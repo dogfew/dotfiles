@@ -1,0 +1,84 @@
+# Modified: Vladimir
+inherits = "term16_dark"
+
+"ui.cursor.primary" = { bg="light-gray", fg="black"}
+"ui.cursor.secondary" = { bg="light-gray", fg="black"}
+"ui.cursor" = { bg="light-gray", fg="black"}
+# "ui.selection" = { bg="blue"}
+# "ui.cursor"         = { modifiers = ["reversed"]}
+# "ui.cursor.secondary" = { fg = "gray", bg="white", modifiers = ["reversed"] }
+# "ui.cursorline.primary" = { bg = "black" }
+# "ui.linenr" = { fg = "gray", bg = "black" }
+# "ui.window" = { bg = "dark-gray" }
+# "ui.popup" = { bg = "dark-gray" }
+"ui.menu" = {bg = "dark-gray"}
+"ui.linenr.selected" = { fg = "white", bg = "black", modifiers = ["bold"] }
+"ui.statusline.inactive" = { fg = "gray", bg = "black" }
+"ui.help" = { fg = "light-gray", bg = "black" }
+"ui.statusline" = { fg = "light-gray", bg = "dark-gray"}
+"ui.statusline.select" = { fg = "black", bg = "blue"}
+"ui.statusline.insert" = { fg = "black", bg = "green"}
+"ui.virtual.whitespace" = "light-gray"
+"ui.virtual.inlay-hint.parameter" = { fg = "gray", modifiers = ["italic"] }
+"ui.virtual.jump-label" = { fg = "blue", modifiers = ["bold", "underlined"] }
+"ui.virtual.ruler" = { bg = "black" }
+"ui.virtual.inlay-hint" = { fg = "gray", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.type" = { fg = "gray", modifiers = ["italic"] }
+"ui.virtual.indent-guide" = {fg="dark-gray"}
+# "operator" = "blue"
+"keyword" = "light-magenta"
+"keyword.storage.modifier" = {fg = "magenta"}
+"tag" = { fg = "magenta"}
+"comment" = { fg = "light-gray", modifiers = ["italic", "dim"] }
+"constructor" = { fg="yellow", modifiers=["bold"]}
+"constant" = { fg="yellow", modifiers=["bold"] }
+"constant.numeric" = "light-cyan"
+"constant.builtin" = "light-cyan"
+"constant.character" = "light-green"
+"constant.character.escape" = {fg = "green"}
+
+# Variables
+"variable.builtin" = { fg="magenta", modifiers = ["bold"] }
+"variable.parameter" = "light-red"
+"variable.other.member" = "white" # Enums, Structs etc.
+"type" = { fg = "yellow"}
+"type.builtin" = { fg = "yellow"}
+"type.enum" = {fg = "yellow"}
+"type.enum.variant" = {fg = "light-cyan"}
+"ui.cursor.match" = { fg = "light-yellow", modifiers = ["underlined"] }
+
+"function" = "light-blue"
+"operator" = "yellow"
+"label" = "green" # lifetimes
+"namespace" = {fg="blue", modifiers = ["italic"]}
+"string" = {fg="green"} #  modifiers=["bold"]}
+"string.regexp" = "orange"
+# "punctuation" = "light-green"
+
+"markup.bold" = { fg = "light-yellow", modifiers = ["bold"] }
+"markup.italic" = { fg = "light-magenta", modifiers = ["italic"] }
+"markup.link.url" = { fg = "yellow", modifiers = ["underlined"] }
+"markup.link.text" = "light-red"
+"markup.strikethrough" = { modifiers = ["underlined"] }
+# "diagnostic" = { modifiers = ["underlined"] }
+"diagnostic.hint" = { underline = { color = "gray", style = "line", modifiers=["italic"] } }
+"diagnostic.info" = { underline = { color = "light-cyan", style = "line", modifiers=["italic"] } }
+"diagnostic.warning" = { underline = { color = "light-yellow", style = "dashed" } , modifiers=["italic"] }
+"diagnostic.error" = { underline = { color = "light-red", style = "curl", modifiers=["italic"] } }
+"warning" = {fg = "yellow", modifiers=["italic", "dim"]}
+"error" = {fg = "light-red", modifiers=["italic", "dim"]}
+"info" = {fg = "green", modifiers=["italic", "dim"]}
+"hint" = {fg = "blue", modifiers=["italic", "dim"]}
+rainbow = [
+  "light-yellow",
+  "light-green",
+  "light-blue",
+  "light-magenta",
+  "light-cyan",
+  # "light-gray",
+]
+[palette]
+dark-gray = "#222222"
+orange = "#dca955"
+# magenta="#A88CB4"
+# aqua = "#aabcfF"

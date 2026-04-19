@@ -1,0 +1,5 @@
+join-or-start warm
+ignore tracelog
+include whitelist-common.inc
+# ignore private-bin
+# ignore disable-programs.inc

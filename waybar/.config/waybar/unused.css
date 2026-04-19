@@ -1,0 +1,37 @@
+/* #memory { */
+/* background-color: #893434; */
+/* border-top: solid 2px #181818; */
+/* border-bottom: solid 2px #181818; */
+/* color: #181818; */
+/* color: #D58575; */
+/* background-color: #241818; */
+/* padding-right: 8px; */
+/* } */
+
+/* #temperature, */
+/* #cpu { */
+/* background-color: #547f90; */
+/* border-top: solid 2px #181818; */
+/* border-bottom: solid 2px #181818; */
+/* border-left: solid 2px #181818; */
+/* color: #181818; */
+/* color: #94C4D4; */
+/* background-color: #181828; */
+/* padding-right: 8px; */
+/* } */
+
+/* #custom-gpu-temp, */
+/* #custom-gpu-memory { */
+/* background-color: #738747; */
+/* #809949 */
+/* border-top: solid 2px #181818; */
+/* border-bottom: solid 2px #181818; */
+/* color: #181818; */
+/* background-color: #182818; */
+/* color: #BAC474; */
+/* padding-right: 8px; */
+/* } */
+
+/* #custom-gpu-memory { */
+/* border-right: solid 2px #181818; */
+/* } */

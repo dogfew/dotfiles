@@ -1,0 +1,22 @@
+{
+  "name":                "AlacrittyTheme",
+  "primary":                 "#989898",
+  "primaryText":             "#f8f8f8",
+  "primaryContainer":        "#383838",
+  "secondary":               "#b8b8f8",
+  "surface":                 "#181818",
+  "surfaceText":             "#F8F8F8",
+  "surfaceVariant":          "#303030",
+  "surfaceVariantText":      "#F8F8F8",
+  "surfaceTint":             "#888888",
+  "background":              "#181818",
+  "backgroundText":          "#f8f8f8",
+  "outline":                 "#474747",
+  "surfaceContainer":        "#181818",
+  "surfaceContainerHigh":    "#222222",
+  "surfaceContainerHighest": "#333333",
+  "error":                   "#C55555",
+  "warning":                 "#F4BF75",
+  "info":                    "#6A9FB5",
+  "matugen_type":  "scheme-content"
+}

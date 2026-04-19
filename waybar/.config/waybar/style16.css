@@ -1,0 +1,5 @@
+@import "style_global.css";
+
+window#waybar {
+  background: none;
+}

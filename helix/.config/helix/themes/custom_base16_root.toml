@@ -1,0 +1,45 @@
+# Modified: Vladimir
+inherits = "base16_default_dark"
+
+"ui.linenr" = { fg = "gray", bg = "black" }
+"ui.window" = { bg = "dark-gray" }
+"ui.popup" = { bg = "dark-gray" }
+"ui.menu" = {bg = "dark-gray"}
+"ui.linenr.selected" = { fg = "white", bg = "black", modifiers = ["bold"] }
+"ui.statusline.inactive" = { fg = "gray", bg = "black" }
+"ui.help" = { fg = "light-gray", bg = "black" }
+"ui.statusline" = { fg = "light-gray", bg = "red"}
+"ui.virtual.whitespace" = "light-gray"
+"ui.virtual.jump-label" = { fg = "blue", modifiers = ["bold", "underlined"] }
+"ui.virtual.ruler" = { bg = "black" }
+"ui.virtual.inlay-hint" = { fg = "gray", modifiers = ["italic"] }
+"ui.virtual.inlay-hint.type" = { fg = "gray", modifiers = ["italic"] }
+"ui.gutter" = { bg="black"}
+# "comment" = { fg = "light-gray", modifiers = ["dim"] }
+# "constant.numeric" = "light-cyan"
+# "constant.builtin" = "light-cyan"
+# "variable.builtin" = { fg="light-yellow", modifiers = ["bold"] }
+# "variable.parameter" = { fg= "light-yellow"}
+# "variable.other.member" = "white"
+# "type" = { fg = "blue"}
+# "type.builtin" = { fg = "cyan"}
+# "type.enum.variant" = {fg = "light-cyan"}
+# "type.enum" = {fg = "cyan"}
+# "ui.cursor.match" = { fg = "light-yellow", modifiers = ["underlined"] }
+# "constant.character.escape" = {fg = "green"}
+# "function" = "light-blue"
+# "operator" = "white"
+# "label" = "light-magenta"
+# "namespace" = {fg="blue"}
+# "constructor" = { fg="light-yellow", modifiers = ["bold"]}
+
+"markup.bold" = { fg = "light-yellow", modifiers = ["bold"] }
+"markup.italic" = { fg = "light-magenta", modifiers = ["italic"] }
+"markup.link.url" = { fg = "yellow", modifiers = ["underlined"] }
+"markup.link.text" = "light-red"
+"markup.strikethrough" = { modifiers = ["underlined"] }
+# "diagnostic" = { modifiers = ["underlined"] }
+[palette]
+dark-gray = "#222222"
+orange = "#dca955"
+aqua = "#aabcfF"

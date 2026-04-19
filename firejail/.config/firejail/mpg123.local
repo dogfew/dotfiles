@@ -1,0 +1,4 @@
+noblacklist ${HOME}/Videos
+whitelist   ${HOME}/Videos
+noblacklist ${HOME}/Music
+whitelist   ${HOME}/Music

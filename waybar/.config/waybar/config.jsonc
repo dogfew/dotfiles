@@ -1,0 +1,417 @@
+{
+  // MAIN LAYOUT
+  "layer": "top",
+  "position": "top",
+  "autohide": true,
+  "autohide-blocked": false,
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "modules-left": [
+    "custom/archicon",
+    "niri/workspaces",
+    "custom/record",
+    "mpris",
+    "privacy",
+    "niri/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "group/minimized-cpu",
+    "temperature",
+    "group/minimized-gpu",
+    "custom/gpu-temp",
+    "memory",
+    "niri/language",
+    "group/minimized-tray",
+    "gamemode",
+    "network",
+    "bluetooth",
+    "wireplumber#output",  // consider to replace or wireplumber to pulseaudio if not using pipewire
+    "wireplumber#input",
+    "battery"
+  ],
+  // GROUPS
+  "group/minimized-tray": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/expand",
+      "tray",
+      "custom/brightness-ddc",
+      "backlight"
+      // "custom/power"
+    ],
+    "drawer": {
+      "transition-duration": 384,
+      "click-to-reveal": true,
+      "children-class": "minimized"
+    }
+  },
+  "group/minimized-cpu": {
+    "exec-if": "command -v nvidia-smi",
+    "orientation": "horizontal",
+    "modules": [
+      "custom/expand-cpu",
+      "cpu",
+      "power-profiles-daemon",
+    ],
+    "drawer": {
+      "transition-duration": 384,
+      "click-to-reveal": true,
+      "children-class": "minimized"
+    }
+  },
+  "group/minimized-gpu": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/expand-gpu",
+      "custom/gpu-usage",
+      "custom/gpu-memory",
+    ],
+    "drawer": {
+      "transition-duration": 384,
+      "click-to-reveal": true,
+      "children-class": "minimized"
+    }
+  },
+  /* SPECIAL */
+  "tray": {
+    "icon-size": 18,
+  },
+  "custom/expand": {
+    "tooltip": false,
+    "format": "<b>⣿</b>"
+  },
+  "custom/expand-gpu": {
+    "exec-if": "command -v nvidia-smi",
+    "exec": "echo 󰾲",
+    "interval": "once",
+    "hide-empty-text": true,
+    "tooltip": false
+  },
+  "custom/expand-cpu": {
+    "tooltip": false,
+    "format": ""
+  },
+  "custom/separator": {
+    "format": "|",
+    "interval": "once",
+    "tooltip": false
+  },
+  /* LEFT */
+  "custom/record": { // todo!
+    "format": "{}",
+    "on-click": "~/.local/bin/record-screen",
+    "exec": "pgrep -x 'gpu-screen-reco' > /dev/null && printf ''",
+    "signal": 8,
+    "interval": 2,
+    "tooltip": true,
+    "tooltip-format": "Recording.."
+  },
+  "custom/archicon": {
+    "format": "󰣇",
+    "on-click": "pkill -x fuzzel || fuzzel --anchor top-left",
+    "on-click-right": "~/.local/bin/change-style",
+    "tooltip": false
+  },
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      // "empty": ""
+    },
+    "persistent-workspaces": {
+      "*": 3
+    },
+    "disable-scroll": true,
+    "all-outputs": true,
+    "disable-markup": true
+  },
+  "niri/window": {
+    "format": "{}",
+    "icon": false,
+    "expand": true,
+    "rewrite": {
+      "(.*) Mozilla Firefox": "$1",
+    }
+  },
+  /* CENTER */
+  "clock": {
+    "timezone": "Europe/Moscow",
+    "format": "{:%H:%M  %d/%m/%Y}",
+    "tooltip-format": "{calendar}",
+    "on-click-right": "pkill -x fuzzel || ~/.local/bin/cliphist-fuzzel-img",
+    "on-click": "~/.config/waybar/scripts/launch_term.sh ~/.local/bin/change-background",
+    "calendar": {
+      "mode": "month"
+    }
+  },
+  // LEFT-STATS
+  "privacy": {
+    "icon-spacing": 8,
+    "icon-size": 16,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 16
+      }
+    ],
+    "ignore-monitor": true
+  },
+  "cpu": {
+    "format": "{usage:>2}%",
+    "tooltip": true,
+    "tooltip-format": "CPU: {usage}%\nCores: {cores}"
+  },
+  "memory": {
+    "format": "󰍛 {used:0.1f} GB", //  󰍛
+    "tooltip": true,
+    "tooltip-format": "RAM:  {used:.2f}/{total:.2f} GiB ({percentage}%)\nSWP:  {swapUsed:.2f}/{swapAvail:.2f} GiB  ({swapPercentage}%)",
+    "on-click": "~/.config/waybar/scripts/launch_term.sh btm",
+    "on-click-right": "~/.config/waybar/scripts/destroy_term.sh"
+  },
+  "temperature": {
+    "format": "{temperatureC}°C",
+    "tooltip": false,
+    "format-icons": [
+      "󱃃",
+      "󰔏",
+      "󱃂"
+    ],
+    "hwmon-path": [
+      "/sys/class/hwmon/hwmon4/temp1_input",
+      "/sys/class/thermal/thermal_zone0/temp"
+    ],
+    "on-click": "~/.config/waybar/scripts/launch_term.sh btm --default_widget_type temp",
+    "on-click-right": "~/.config/waybar/scripts/destroy_term.sh"
+  },
+  "custom/gpu-usage": {
+    "exec-if": "command -v nvidia-smi",
+    "exec": "~/.config/waybar/scripts/nvidia.sh",
+    "return-type": "json",
+    "format": "{text}",
+    "tooltip": true,
+    "interval": 5
+  },
+  "custom/gpu-temp": {
+    "exec-if": "command -v nvidia-smi",
+    "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits",
+    "format": "{}°C",
+    "tooltip-format": "GPU: {}°C",
+    "on-click": "~/.config/waybar/scripts/launch_term.sh btm",
+    "on-click-right": "~/.config/waybar/scripts/destroy_term.sh",
+    "interval": 10
+  },
+  "custom/gpu-memory": {
+    "exec-if": "command -v nvidia-smi",
+    "return-type": "json",
+    "exec": "nvidia-smi --query-gpu=memory.used,memory.total --format=csv,noheader,nounits | awk -F', *' 'NR==1{u=$1/1024; t=$2/1024; printf \"{\\\"text\\\":\\\"%.1f\\\",\\\"tooltip\\\":\\\"%.1f/%.1fGB\\\"}\\n\", u, u, t; exit}'",
+    "format": "{} GB",
+    "on-click": "~/.config/waybar/scripts/launch_term.sh btm",
+    "on-click-right": "~/.config/waybar/scripts/destroy_term.sh",
+    "interval": 5
+  },
+  /* === Modules Center === */
+  /* RIGHT PANEL */
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "all-outputs": true,
+    "active-first": true,
+    "tooltip-format": "{name}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "rofi"
+    ]
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    }
+  },
+  "custom/brightness-ddc": {
+    "format": "\uDB80\uDCDE",
+    "format-alt": "\uDB80\uDCDE {}%",
+    "format-alt-click": "click-right",
+    "signal": 2,
+    "interval": "once",
+    "exec-if": "command -v ddcutil",
+    // Todo! bus num
+    "exec": "ddcutil --bus 2 getvcp 10 | sd '^.*current value =\\s+(\\d+).*' '$1'",
+    "on-scroll-up": "ddcutil --bus 2 setvcp 10 + 1",
+    "on-scroll-down": "ddcutil --bus 2 setvcp 10 - 1",
+    "tooltip-format": "Brightness: {}%",
+    "on-click": "",
+    "tooltip": true,
+    "exec-on-event": true
+  },
+  "bluetooth": {
+    "on-click": "~/.config/waybar/scripts/launch_term.sh bluetui",
+    "on-click-right": "~/.config/waybar/scripts/destroy_term.sh",
+    // "on-click-middle": "rfkill block bluetooth",
+    "format": "",
+    "format-disabled": "!", // an empty format will hide the module
+    "format-connected": ":{num_connections}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+  "wireplumber#output": {
+    "format": "{icon}",
+    "format-alt": "{icon} {volume:>2}%",
+    "on-click": "~/.config/waybar/scripts/launch_term.sh wiremix -v output",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "format-alt-click": "click-right",
+    "format-icons": {
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰖀",
+        "󰕾",
+        "󰕾",
+        "󰕾"
+      ],
+      "default-muted": "󰝟",
+      "headphone": "󰋋",
+      "headphone-muted": "󰟎",
+      "headset": "󰋎",
+      "headset-muted": "󰋐"
+    },
+    "max-volume": 99,
+    "tooltip-format": "<b>Volume</b>: {volume}%\n<b>Output Device</b>: {desc}"
+  },
+  "wireplumber#input": {
+    "format": "{format_source}",
+    "format-alt": "{format_source} {source_volume}%",
+    "on-click": "~/.config/waybar/scripts/launch_term.sh wiremix -v input",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "format-alt-click": "click-right",
+    "tooltip-format": "<b>Volume</b>: {source_volume}%\n<b>Input Device</b>: {source_desc}",
+    "format-source": "",
+    "format-source-muted": " ",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+ -l 1.5",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%- -l 1.5",
+    "min-length": 2,
+    "justify": "center"
+  },
+  "network": {
+    "interval": 10,
+    "format": "󰤨",
+    "format-ethernet": "󰈀",
+    "format-wifi": "{icon}",
+    "format-disconnected": "󰤯",
+    "format-disabled": "󰤮",
+    "format-icons": [
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "on-click": "~/.config/waybar/scripts/launch_term.sh impala",
+    "on-click-right": "~/.config/waybar/scripts/destroy_term.sh",
+    "tooltip-format": "<b>Gateway</b>: {gwaddr}",
+    "tooltip-format-ethernet": "<b>Interface</b>: {ifname}",
+    "tooltip-format-wifi": "<b>Network</b>: {essid}\n<b>IP Addr</b>: {ipaddr}/{cidr}\n<b>Strength</b>: {signalStrength}%\n<b>Frequency</b>: {frequency} GHz",
+    "tooltip-format-disconnected": "Wi-Fi Disconnected",
+    "tooltip-format-disabled": "Wi-Fi Disabled",
+    "max-length": 50
+  },
+  "niri/language": {
+    "format": "{}",
+    "format-ru": "RU",
+    "format-en": "US",
+    "on-click": "niri msg action switch-layout  'next'"
+  },
+  "battery": {
+    "bat": "BAT1",
+    "interval": 10,
+    "full-at": 98,
+    "states": {
+      "half": 50,
+      "warning": 20,
+      "critical": 8
+    },
+    "rotate": 0,
+    "events": {
+      "on-discharging-warning": "notify-send -u normal 'Low Battery'",
+      "on-discharging-critical": "notify-send -u critical 'Very Low Battery'",
+      "on-charging-100": "notify-send -u normal 'Battery Full!'"
+    },
+    "format": "{icon} {capacity:>2}%",
+    "format-alt": "{icon}",
+    "format-alt-click": "click-right",
+    "tooltip-format": "<b>Discharging</b>: {time}",
+    "tooltip-format-charging": "<b>Charging</b>: {time}",
+    "format-icons": [
+      "󰂎",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "max-length": 25
+  },
+  "backlight": {
+    "format": "{icon} ",
+    "format-alt": "{icon} {percent:>2}% ",
+    "scroll-step": 0.5,
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "gamemode": {
+    "format": "{glyph}",
+    "format-alt": "{glyph} {count}",
+    "glyph": "🎮︎",
+    "hide-not-running": true,
+    "use-icon": false,
+    "tooltip": true,
+    "tooltip-format": "Games running: {count}"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  "mpris": {
+    "format": "{player_icon}",
+    "format-paused": "{status_icon}",
+    "player-icons": {
+      "default": "►",
+      "mpv": "♫",
+      "stopped": "⏹︎"
+    },
+    "max-length": 2,
+    "min-length": 2,
+    "justify": "center",
+    "status-icons": {
+      "paused": "⏸"
+    },
+    "tooltip-format": "{player} ({status}):\n{title}\n{length}"
+  }
+}

@@ -1,0 +1,31 @@
+#!/usr/bin/bash
+set -euo pipefail
+WALLPAPERS_DIR=${HOME}/Pictures/Wallpapers/;
+BLURRED_DIR=${WALLPAPERS_DIR}Blurred/
+YELLOW="\033[34m"
+if [ ! -f /usr/bin/fzf ]; then
+  printf "No fzf executable found. Please install fzf.\n${YELLOW}sudo pacman -S fzf\n"
+  sleep 3
+  exit 1;
+fi
+mkdir -p "$BLURRED_DIR"
+choosen=$(
+  find "$WALLPAPERS_DIR" -maxdepth 1 -type f | fzf \
+--preview-window=right:99% \
+--preview-border=none --bind 'ctrl-j:down,ctrl-k:up,alt-j:preview-down,alt-k:preview-up' \
+--preview "chafa -s 60x60 --probe-mode=stdio {} && basename {1}"
+)
+blurred=$BLURRED_DIR$(basename "$choosen")
+echo "Choosen ${choosen}"
+if [ ! -f "$blurred" ]; then
+  echo "Making: ${blurred}..."
+  magick "$choosen" -gaussian-blur 0x8 -fill black -colorize 30% "$blurred"
+else
+  echo "Exists: ${blurred}"
+fi
+ln -sf "$choosen" "${HOME}/.config/wallpaper"
+ln -sf "$blurred" "${HOME}/.config/wallpaper_blurred"
+if test -f /usr/bin/systemctl; then
+  systemctl --user daemon-reload
+  systemctl --user restart swaybg.service
+fi

@@ -1,0 +1,232 @@
+* {
+  font-family: "JetBrains Noto Mono Nerd", "monospace";
+  font-size: 16px;
+  min-height: 20px;
+  box-shadow: none;
+  text-shadow: none;
+  border: none;
+  transition: none;
+}
+
+tooltip,
+#custom-archicon,
+#clock,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#idle_inhibitor,
+#pulseaudio,
+#wireplumber,
+#workspaces,
+#network,
+#battery,
+#bluetooth,
+#tray,
+#tray.passive,
+#tray.active,
+#tray.needs-attention,
+#custom-gpu-usage,
+#custom-gpu-temp,
+#custom-gpu-memory,
+#custom-expand,
+#custom-expand-gpu,
+#custom-expand-cpu,
+#custom-separator,
+#custom-expand,
+#custom-brightness-ddc,
+#taskbar,
+#window,
+#gamemode,
+#power-profiles-daemon,
+#custom-record,
+#mpris,
+#backlight,
+#privacy,
+#custom-power,
+#language {
+  color: #F8F8F8;
+  background: #181818;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+window#waybar {
+  transition: background-color 0.5s;
+}
+
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#idle_inhibitor:hover,
+#pulseaudio:hover,
+#wireplumber:hover,
+#network:hover,
+#battery:hover,
+#bluetooth:hover,
+#custom-gpu-temp:hover,
+#custom-gpu-memory:hover,
+#custom-gpu-usage:hover,
+#custom-expand:hover,
+#custom-expand-cpu:hover,
+#custom-expand-gpu:hover,
+#power-profiles-daemon:hover,
+#custom-brightness-ddc:hover,
+#custom-record:hover,
+#gamemode:hover,
+#backlight:hover,
+#privacy:hover,
+#custom-power:hover,
+#mpris:hover,
+#tray *:hover,
+#language:hover {
+  background: #282828;
+}
+
+/* OVERRIDES */
+#gamemode label {
+  margin-top: 2px;
+  margin-bottom: -2px;
+}
+
+
+#custom-expand-gpu,
+#custom-expand {
+  padding-left: 4px;
+}
+
+#custom-expand {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+#backlight {
+  padding-right: 0px;
+}
+
+#wireplumber,
+#pulseaudio {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#window {
+  margin-right: 32px
+}
+
+#network,
+#custom-record,
+#custom-power,
+#power-profiles-daemon {
+  padding-left: 6px;
+  padding-right: 10px;
+}
+
+#memory {
+  margin-right: 8px;
+}
+
+/* ROUND CORNERS */
+#window,
+#memory,
+#clock {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+#language,
+#custom-expand-cpu,
+#clock {
+  border-bottom-left-radius: 16px;
+  border-top-left-radius: 16px;
+}
+
+/* ICON */
+#custom-record {
+  color: #C55555;
+}
+
+#custom-archicon {
+  font-size: 20px;
+  color: #82B8C8;
+}
+
+#custom-archicon:hover {
+  color: #92C8D8;
+}
+
+/* WORKSPACES */
+#workspaces button {
+  color: #F4BF75;
+}
+
+#workspaces button.active {
+  color: #90A959;
+}
+
+#workspaces button:hover {
+  color: #6A9FB5;
+  transition: color 0.3s ease-out 0.15s;
+  background: #181818;
+}
+
+#workspaces button.active:hover {
+  color: #AAC474;
+  transition: color 0.3s ease-out 0.15s;
+  background: #181818;
+}
+
+/* BATTERY */
+#battery.warning {
+  color: #F4BF75;
+}
+
+#battery.critical {
+  color: #C55555;
+}
+
+#battery.charging {
+  color: #90A959;
+}
+
+/* TRAY */
+#tray {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#tray menu,
+menu {
+  background-color: #181818;
+  font-size: 12px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+#tray menu menuitem,
+menuitem {
+  background-color: #181818;
+  color: #f8f8f8;
+}
+
+#tray menu menuitem:hover,
+menuitem:hover {
+  background-color: #D8D8D8;
+  color: #181818;
+  transition: none;
+
+}
+
+#tray * {
+  padding-left: 4px;
+  padding-right: 4px;
+  margin-left: 0px;
+  margin-right: 0px;
+  min-width: 0px;
+}

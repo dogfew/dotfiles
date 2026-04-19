@@ -1,0 +1,19 @@
+private /media/shared/Steam
+ignore mkdir
+ignore mkfile
+
+ignore dbus-user none
+dbus-user filter
+dbus-user.talk com.feralinteractive.GameMode
+dbus-user.talk org.freedesktop.portal.Desktop
+dbus-user.talk org.freedesktop.FileManager1
+noblacklist ${PATH}/bash
+ignore noroot
+ignore private-bin
+# Luanti works.
+# private-bin awk,basename,bash,bsdtar,bzip2,cat,chmod,cksum,cmp,comm,compress,cp,curl,cut,date,dbus-launch,dbus-send,desktop-file-edit,desktop-file-install,desktop-file-validate,dirname,echo,env,expr,file,find,getopt,grep,gtar,gzip,head,hostname,id,lbzip2,ldconfig,ldd,ln,ls,lsb_release,lsof,lspci,lz4,lzip,lzma,lzop,md5sum,mkdir,mktemp,mv,netstat,ps,pulseaudio,python*,readlink,realpath,rm,sed,sh,sha1sum,sha256sum,sha512sum,sleep,sort,steam,steamdeps,steam-native,steam-runtime,sum,tail,tar,tclsh,test,touch,tr,umask,uname,update-desktop-database,wc,wget,wget2,which,whoami,xterm,xz,zenity,gamemoderun,tsocks
+
+noblacklist /sys/module/nvidia
+noblacklist /sys/module/nvidia_drm
+noblacklist /sys/module/nvidia_modeset
+noblacklist /sys/module/nvidia_uvm

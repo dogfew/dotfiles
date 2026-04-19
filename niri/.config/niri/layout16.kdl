@@ -1,0 +1,45 @@
+layout {
+	gaps 16
+
+  focus-ring {
+  	on
+    width 2
+    active-color "#aa759fff"
+    inactive-color "#505050ff"
+    }
+
+   border {
+       off
+   }
+
+	shadow {
+		on
+	}
+
+    insert-hint {
+        off
+    }
+
+    tab-indicator {
+        on
+        hide-when-single-tab
+        place-within-column
+        gap 4
+        width 8
+        gaps-between-tabs 8
+        corner-radius 8
+        length total-proportion=0.5
+        position "top"
+        active-color "#AA759F"
+        inactive-color "#6B6B6B"
+        urgent-color "#6B6B6B"
+    }
+}
+window-rule {
+    geometry-corner-radius 16
+    clip-to-geometry true
+}
+
+binds {
+    Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel" "--border-radius=16"; }
+}

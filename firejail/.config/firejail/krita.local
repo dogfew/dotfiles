@@ -1,0 +1,3 @@
+dbus-user.talk org.freedesktop.portal.Desktop
+dbus-user.talk org.freedesktop.FileManager1
+dbus-system.talk org.freedesktop.UPower

@@ -1,0 +1,32 @@
+text-color=#F8F8F8
+font=Noto Sans Mono 13
+height=128
+width=384
+border-color=#282828
+border-size=1
+border-radius=24,0,0,24
+padding=2,0,0,2
+progress-color=over #90a959
+default-timeout=10000
+background-color=#181818
+
+format=<b>%s ⏵</b>\n%b
+# format=%s ⏵\n%b
+sort=-time
+layer=overlay
+margin=0
+padding=0,5,10
+icons=0
+max-icon-size=64
+ignore-timeout=1
+
+[urgency=high]
+background-color=#c55555
+text-color=#181818
+default-timeout=0
+
+[summary~="log-.*"]
+border-color=#f4bf75
+
+[app-name=lightcord summary~="(.*(^| )orz|ORZ|sto|STO|otl|OTL( |$).*)"]
+invisible=1

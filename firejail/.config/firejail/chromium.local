@@ -1,0 +1,8 @@
+dbus-user.talk org.freedesktop.portal.Desktop
+dbus-user.talk org.freedesktop.FileManager1
+dbus-system.talk org.freedesktop.UPower
+noblacklist ${HOME}/.rustup
+noblacklist ${HOME}/tmp/
+whitelist ${HOME}/tmp/
+whitelist ${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/book
+read-only ${HOME}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/book

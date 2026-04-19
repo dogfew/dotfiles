@@ -1,0 +1,38 @@
+#!/bin/nu
+let BLACKLISTED_REASONS  = [
+    "nonfree"
+    "uses-nonfree"
+    "semifree"
+    "recommends-nonfree"
+] | each {|x| ("[" + $x + "]")}
+let BLACKLISTED_URLS = [
+    "https://git.parabola.nu/abslibre/blacklist.git/plain/blacklist.txt",
+    "https://git.parabola.nu/abslibre/blacklist.git/plain/aur-blacklist.txt"
+]
+let HIDE_COLUMNS = [
+    "free-alternative"
+]
+let installed = pacman -Qq | lines
+mut installed_nonfree = $BLACKLISTED_URLS |
+    each {|x| print ("Query " ++ $x); http get $x} |
+    str join "\n" |
+    str replace -a "[FIXME:description]" "" |
+    str replace -a "[FIXME:package]" "" |
+    lines |
+    split column ':' -n 5 |
+    where column0 in $installed |
+    select column0 column1 column4 |
+    rename nonfree-pkg free-alternative reason-desc  |
+    where reason-desc =~ "nonfree]|semifree]"
+let reason_colorized = $installed_nonfree.reason-desc |
+    str replace -a "[uses-nonfree]" {|m| $"(ansi red)[uses-nonfree](ansi reset)" } |
+    str replace -a "[nonfree]" {|m| $"(ansi red_bold)[nonfree](ansi reset)" } |
+    str replace -a "[semifree]" {|m| $"(ansi yellow_bold)[semifree](ansi reset)" } |
+    str replace -a "[recommends-nonfree]" {|m| $"(ansi yellow)[recommends-nonfree](ansi reset)" } |
+    wrap "reason-desc"
+print (
+    $installed_nonfree |
+    merge $reason_colorized |
+    reject ...$HIDE_COLUMNS
+)
+# return $installed_nonfree

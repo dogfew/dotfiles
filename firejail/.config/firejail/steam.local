@@ -1,0 +1,5 @@
+include games.local
+dbus-user.talk com.steampowered.PressureVessel.LaunchAlongsideSteam
+dbus-user.own com.steampowered.PressureVessel.LaunchAlongsideSteam
+dbus-user.own  com.steampowered.PressureVessel.LaunchAlongsideSteam.*
+dbus-user.talk com.steampowered.PressureVessel.LaunchAlongsideSteam.*
