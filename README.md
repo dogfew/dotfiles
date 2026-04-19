@@ -15,7 +15,7 @@ mako \
 swaybg \
 swayidle \
 swaylock \
-swayosd-server \
+swayosd \
 chafa \
 imagemagick \
 stow
