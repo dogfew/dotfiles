@@ -18,6 +18,7 @@ swaylock \
 swayosd \
 chafa \
 imagemagick \
+jq \
 stow
 ```
 

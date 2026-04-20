@@ -1,5 +1,15 @@
 export PATH="$HOME/.local/bin:$PATH"
-export EDITOR="/usr/bin/helix"
+if test -f /usr/local/bin/helix
+    export EDITOR="/usr/bin/helix"
+else if test -f /usr/local/bin/hx
+    export EDITOR="/usr/bin/hx"
+else if test -f /usr/bin/hx
+    export EDITOR="/usr/bin/hx"
+else if test -f /usr/bin/helix
+    export EDITOR="/usr/bin/helix"
+else if test -f ~/.local/bin/hx
+    export EDITOR="~/.local/bin/hx"
+end
 # export HELIX_RUNTIME=~/src/helix/runtime
 set EDITOR /usr/bin/helix
 if status is-interactive

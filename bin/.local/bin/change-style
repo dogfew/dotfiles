@@ -13,10 +13,10 @@ LINK="$(readlink "$NIRI_LAYOUT_SYMLINK")"
 if [ "${LINK}" = "${NIRI_LAYOUT_16}" ]; then
   ln -sf "$NIRI_LAYOUT_0" "$NIRI_LAYOUT_SYMLINK";
   ln -sf "$WAYBAR_0" "$WAYBAR_SYMLINK"
-  pkill -USR2 "waybar"
 else
   ln -sf "$NIRI_LAYOUT_16" "$NIRI_LAYOUT_SYMLINK";
   ln -sf "$WAYBAR_16" "$WAYBAR_SYMLINK"
-  pkill -USR2 "waybar"
 fi
+
+pkill -USR2 "waybar"
 

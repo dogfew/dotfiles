@@ -10,7 +10,7 @@ general {
 order += "disk /"
 order += "memory"
 order += "wireless _first_"
-order += "battery 0"
+order += "battery _first_"
 # order += "cpu_temperature 0"
 # order += "tztime"
 order += "volume master"
