@@ -1,8 +1,8 @@
 export PATH="$HOME/.local/bin:$PATH"
 if test -f /usr/local/bin/helix
-    export EDITOR="/usr/bin/helix"
+    export EDITOR="/usr/local/bin/helix"
 else if test -f /usr/local/bin/hx
-    export EDITOR="/usr/bin/hx"
+    export EDITOR="/usr/local/bin/hx"
 else if test -f /usr/bin/hx
     export EDITOR="/usr/bin/hx"
 else if test -f /usr/bin/helix
@@ -10,17 +10,14 @@ else if test -f /usr/bin/helix
 else if test -f ~/.local/bin/hx
     export EDITOR="~/.local/bin/hx"
 end
-# export HELIX_RUNTIME=~/src/helix/runtime
-set EDITOR /usr/bin/helix
 if status is-interactive
     fish_vi_key_bindings
     # fish_helix_key_bindings
     bind \cd delete-char
     fish_config theme choose base16-default --color-theme=dark
-    if test -f /usr/bin/fish
+    if command -v zoxide >/dev/null
         zoxide init fish --cmd=z | source
     end
-    # alias ls eza
     function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
         if test "$argv" = !!
             echo sudo $history[1]
