@@ -30,7 +30,7 @@ extendSelect = ["B", "SIM", "UP", "I", "C4", "PIE", "RET", "RUF", "ARG", "PTH", 
 ignore = ["D"]
 
 
-# [[language]]
-# name = "jsonc"
-# language-servers = []
-# auto-format = false
+[[language]]
+name = "jsonc"
+language-servers = []
+auto-format = false

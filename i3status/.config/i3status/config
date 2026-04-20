@@ -37,7 +37,7 @@ volume master {
 }
 tztime local {
         # format = "<span foreground='#82B8C8'>%Y/%m/%d</span> %H:%M<span foreground='#D8D8D8'>:%S</span>"
-        format = "<span foreground='#82B8C8'>%Y/%m/%d</span> %H:%M"
+        format = "<span foreground='#82B8C8'>%H:%M </span>%Y/%m/%d"
         timezone = "Europe/Moscow"
 }
 
