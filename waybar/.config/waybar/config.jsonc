@@ -87,7 +87,8 @@
   "custom/expand-gpu": {
     "exec-if": "command -v nvidia-smi",
     "exec": "echo 󰾲",
-    "interval": "once",
+    "signal": 2,
+    // "interval": "once",
     "hide-empty-text": true,
     "tooltip": false
   },
@@ -106,7 +107,7 @@
     "on-click": "~/.local/bin/record-screen",
     "exec": "pgrep -x 'gpu-screen-reco' > /dev/null && printf ''",
     "signal": 8,
-    "interval": 2,
+    "interval": 1,
     "tooltip": true,
     "tooltip-format": "Recording.."
   },
@@ -184,6 +185,7 @@
     ],
     "hwmon-path": [
       "/sys/class/hwmon/hwmon4/temp1_input",
+      "/sys/class/thermal/thermal_zone2/temp",
       "/sys/class/thermal/thermal_zone0/temp"
     ],
     "on-click": "~/.config/waybar/scripts/launch_term.sh btm --default_widget_type temp",
@@ -240,7 +242,7 @@
     "format-alt": "\uDB80\uDCDE {}%",
     "format-alt-click": "click-right",
     "signal": 2,
-    "interval": "once",
+    // "interval": "once",
     "exec-if": "command -v ddcutil",
     // Todo! bus num
     "exec": "ddcutil --bus 2 getvcp 10 | sd '^.*current value =\\s+(\\d+).*' '$1'",

@@ -813,7 +813,8 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 switch-events {
-    // lid-close { spawn "swaylock"; }
+    // If no elogind, don't forget to add sleep 0.2 && zzz to button/lid at /etc/acpi/handler.sh
+    lid-close { spawn "sh" "-c" "test -f /usr/share/dbus-1/system-services/org.freedesktop.login1.service || swaylock"; }
     lid-open { spawn "notify-send" "The laptop lid is open!"; }
     tablet-mode-on { spawn "notify-send" "Tablet Mode On"; }
     tablet-mode-off { spawn "notify-send" "Tablet Mode Off"; }
@@ -839,3 +840,5 @@ debug {
 }
 // include "dms/cursor.kdl"
 include "layout.kdl"
+// touch ~/.config/niri/autostart.kdl
+include "autostart.kdl"
