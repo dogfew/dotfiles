@@ -38,18 +38,18 @@ stow gtk-4.0
 I haven't tested it, so it may be incorrect. *execute at your own risk*
 
 ## Background
-Script searches for wallpapers at this directory:
+`change-background` scripts @ dotfiles/bin searches for wallpapers in ~/Pictures/Wallpapers directory and creates directory with blurred
+version for swaylock backround in this subfolder:
 ```sh
 mkdir -p ~/Pictures/Wallpapers/Blurred
 ```
-You can symlink some of your wallpapers:
+You can symlink your wallpaper to be shown with swaybg:
 ```sh
 ln -sf ~/Pictures/Wallpapers/your_wallpaper.png ~/.config/wallpaper
 ```
-Also you can use `change-background` script from dotfiles/bin. If you want to symlink all my scripts to ~/.local/bin/, you can run:
+And you can manually symlink your wallpaper for background in swaylock screen:
 ```sh
-cd dotfiles
-stow bin
+ln -sf ~/Pictures/Wallpapers/Blurred/your_blurred_wp.png ~/.config/wallpaper_blurred
 ```
 
 ## Services
