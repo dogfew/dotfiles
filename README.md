@@ -1,5 +1,6 @@
 # Niri dotfiles
 
+![screenshot](niri-1.png)
 Ensure that you have niri, fuzzel and either foot or alacritty terminals. Note that change-wallpaper script
 utilized foot's ability to display pictures that lacks in alacritty.
 ```bash
@@ -66,8 +67,6 @@ Requisite=graphical-session.target
 [Service]
 ExecStart=/usr/bin/swaybg -m fill -i ${HOME}/.config/wallpaper
 Restart=on-failure
-```
-```sh
 ```
 ```service
 // ~/.config/systemd/user/swayidle.service
