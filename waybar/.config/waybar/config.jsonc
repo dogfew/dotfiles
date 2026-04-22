@@ -185,8 +185,7 @@
     ],
     "hwmon-path": [
       "/sys/class/hwmon/hwmon4/temp1_input",
-      "/sys/class/thermal/thermal_zone2/temp",
-      "/sys/class/thermal/thermal_zone0/temp"
+      "/sys/class/hwmon/hwmon5/temp1_input"
     ],
     "on-click": "~/.config/waybar/scripts/launch_term.sh btm --default_widget_type temp",
     "on-click-right": "~/.config/waybar/scripts/destroy_term.sh"
